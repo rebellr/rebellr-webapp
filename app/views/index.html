@@ -1,0 +1,60 @@
+<div layout="column" flex ng-cloak>
+  <section layout="row" flex>
+    <md-content flex>
+      <div layout="row" flex layout-fill layout-align="center center">
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Welcome to rebellr</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              Rebellr is a website where you can interact with your classmates at your school in an unprecedented way.
+            </p>
+            <p>
+              With rebellr, you can:
+            </p>
+            <ul>
+              <li>Search for people in your school,</li>
+              <li>See what classes your friends are taking,</li>
+              <li>Find different clubs in your school,</li>
+              <li>Discover different events in your school (such as football games),</li>
+              <li>And much more!</li>
+            </ul>
+            <p>
+              To get started, either login or sign up below. You must have an @bvsd.org email to register.
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>Login</md-button>
+            <md-button>Sign up</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-md')" md-component-id="right">
+      <md-content layout-padding>
+        <form layout="column">
+          <md-input-container>
+            <label for="email">Email</label>
+            <input type="email" id="email"
+                   ng-model="user.email" md-autofocus>
+          </md-input-container>
+          <md-input-container>
+            <label for="password">Password</label>
+            <input type="password" id="password"
+                   ng-model="user.password" md-autofocus>
+          </md-input-container>
+          <md-button aria-label="Sign up">
+            Login
+          </md-button>
+          <md-button aria-label="Sign up">
+            Sign up
+          </md-button>
+        </form>
+      </md-content>
+    </md-sidenav>
+  </section>
+</div>
