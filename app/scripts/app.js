@@ -15,7 +15,7 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngMaterial'
   ]);
