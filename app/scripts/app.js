@@ -17,5 +17,6 @@ angular
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.validate'
   ]);
