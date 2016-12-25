@@ -21,7 +21,7 @@ angular.module('rebellrApp')
           deferred.resolve(response.data);
         }, function errorCallback() {
           dialogs.networkErrorAlert();
-          deferred.reject();
+          deferred.reject(null);
         });
 
       return deferred.promise;
