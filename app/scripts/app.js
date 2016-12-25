@@ -16,5 +16,6 @@ angular
     'ngMessages',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngMaterial'
   ]);
