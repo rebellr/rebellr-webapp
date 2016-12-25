@@ -5,7 +5,6 @@
 angular.module('rebellrApp')
   .service('dialogs', ['$mdDialog', function dialogsService($mdDialog) {
     this.networkErrorAlert = function (error) {
-      console.error(error);
       $mdDialog.show(
         $mdDialog.alert()
           .parent(angular.element(document.body))
@@ -15,5 +14,17 @@ angular.module('rebellrApp')
           .ariaLabel('Network Error')
           .ok('Ok Ok')
       );
+    };
+
+    this.errorAlert = function (errorDescription) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.body))
+          .clickOutsideToClose(true)
+          .title('There has been an error')
+          .textContent('There has been an error: ' + errorDescription)
+          .ariaLabel('Error')
+          .ok('Ok Ok')
+      )
     };
   }]);
