@@ -9,7 +9,7 @@ angular.module('rebellrApp')
 
 angular.module('rebellrApp')
   .service('UserService', ['$state', '$http', 'httpConfig', 'dialogs', '$mdDialog', function ($state, $http, httpConfig, dialogs, $mdDialog) {
-    this.signup = function (user) {
+    this.register = function (user) {
       $http({
         method: 'POST',
         url: httpConfig.getFullServerUrl() + '/users',
@@ -22,7 +22,7 @@ angular.module('rebellrApp')
             .parent(angular.element(document.body))
             .clickOutsideToClose(false)
             .title('Thanks!')
-            .textContent('Thank you for signing up! Please check your email to activate your account.')
+            .textContent('Thank you for registering! Please check your email to activate your account.')
             .ok('Ok Ok')
         )
           .then(function() {

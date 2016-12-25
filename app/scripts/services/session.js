@@ -27,7 +27,7 @@ angular.module('rebellrApp')
       return deferred.promise;
     };
 
-    this.signin = function (email, password) {
+    this.signIn = function (email, password) {
       $http({
         method: 'POST',
         url: httpConfig.getFullServerUrl() + "/sessions",
@@ -51,7 +51,7 @@ angular.module('rebellrApp')
         });
     };
 
-    this.logout = function() {
+    this.signOut = function() {
       $http.delete(httpConfig.getFullServerUrl() + '/sessions')
         .then(function successCallback() {
           $state.go('index');

@@ -5,11 +5,11 @@
         <md-card>
           <md-card-title>
             <md-card-title-text>
-              <span class="md-headline">Sign Up</span>
+              <span class="md-headline">Register</span>
             </md-card-title-text>
           </md-card-title>
           <md-card-content>
-            <form name="usersSignupForm">
+            <form name="usersRegisterForm">
               <div layout-gt-xs="row">
                 <md-input-container class="md-block">
                   <label>First Name</label>
@@ -37,7 +37,7 @@
               </md-input-container>
               <md-autocomplete
                 required
-                ng-disabled="!usersSignupForm.email.$valid"
+                ng-disabled="!usersRegisterForm.email.$valid"
                 md-items="item in querySearch(schoolSearchText)"
                 md-search-text="schoolSearchText"
                 md-selected-item="school"
@@ -54,7 +54,7 @@
             </form>
           </md-card-content>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-disabled="!usersSignupForm.$valid" ng-click="signup()">Sign up</md-button>
+            <md-button ng-disabled="!usersRegisterForm.$valid" ng-click="register()">Register</md-button>
           </md-card-actions>
         </md-card>
       </div>

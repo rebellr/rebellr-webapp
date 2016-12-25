@@ -3,20 +3,20 @@
  */
 
 angular.module('rebellrApp')
-  .controller('UsersSignupCtrl', ['$scope', '$log', '$http', 'httpConfig', 'UserService', 'dialogs', function ($scope, $log, $http, httpConfig, UserService, dialogs) {
+  .controller('UsersRegisterCtrl', ['$scope', '$log', '$http', 'httpConfig', 'UserService', 'dialogs', function ($scope, $log, $http, httpConfig, UserService, dialogs) {
     $scope.schools = [];
 
-    $scope.signup = function () {
+    $scope.register = function () {
       $scope.user.school_id = $scope.school.id;
 
-      UserService.signup($scope.user);
+      UserService.register($scope.user);
     };
 
     $scope.onEmailChange = function(email) {
       $scope.school = null;
       $scope.schoolSearchText = "";
 
-      if (!$scope.usersSignupForm.email.$valid)
+      if (!$scope.usersRegisterForm.email.$valid)
         return;
 
       var index = email.indexOf('@');

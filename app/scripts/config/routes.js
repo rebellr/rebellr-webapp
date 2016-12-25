@@ -11,13 +11,13 @@ angular.module('rebellrApp')
       url: ''
     };
 
-    var userSignupState = {
-      name: 'signup',
-      templateUrl: '/views/users/signup.html',
-      controller: 'UsersSignupCtrl',
-      url: '/signup'
+    var usersRegisterState = {
+      name: 'register',
+      templateUrl: '/views/users/register.html',
+      controller: 'UsersRegisterCtrl',
+      url: '/register'
     };
 
     $stateProvider.state(indexState);
-    $stateProvider.state(userSignupState);
+    $stateProvider.state(usersRegisterState);
   }]);
