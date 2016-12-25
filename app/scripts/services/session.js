@@ -36,4 +36,13 @@ angular.module('rebellrApp')
           }
         });
     };
+
+    this.logout = function() {
+      $http.delete(httpConfig.getFullServerUrl() + '/sessions')
+        .then(function successCallback() {
+          $state.go('index');
+        }, function errorCallback() {
+          dialogs.networkErrorAlert();
+        });
+    };
   }]);
