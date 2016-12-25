@@ -12,7 +12,21 @@ angular.module('rebellrApp')
   }]);
 
 angular.module('rebellrApp')
-  .service('SessionService', ['$state', '$cookies', '$http', 'httpConfig', 'dialogs', function ($state, $cookies, $http, httpConfig, dialogs) {
+  .service('SessionService', ['$state', '$cookies', '$q', '$http', 'httpConfig', 'dialogs', function ($state, $cookies, $q, $http, httpConfig, dialogs) {
+    this.getCurrentUser = function () {
+      var deferred = $q.defer();
+
+      $http.get(httpConfig.getFullServerUrl() + '/status')
+        .then(function successCallback(response) {
+          deferred.resolve(response.data);
+        }, function errorCallback() {
+          dialogs.networkErrorAlert();
+          deferred.reject();
+        });
+
+      return deferred.promise;
+    };
+
     this.signin = function (email, password) {
       $http({
         method: 'POST',
