@@ -281,3 +281,24 @@ angular.module('rebellrApp')
       };
     }];
   }]);
+
+angular.module('rebellrApp')
+  .config(['httpConfigProvider', function (httpConfigProvider) {
+    httpConfigProvider.setIncludeWithCredentialsHeader(false);
+    httpConfigProvider.setUseCors(true);
+
+    if (window) {
+      if (window.location.hostname === 'localhost') {
+        httpConfigProvider.setServerUrl(window.location.protocol + '//' + window.location.hostname + ':3000');
+      } else {
+        httpConfigProvider.setServerUrl(window.location.protocol + '//' + window.location.hostname);
+      }
+    } else {
+      httpConfigProvider.setServerUrl(window.location.protocol + '//' + window.location.hostname);
+    }
+  }])
+  .run(['$cookies', '$http',  function($cookies, $http) {
+    if ($cookies.get('auth_token')) {
+      $http.defaults.headers.common.Authorization = 'Token token=' + $cookies.get('auth_token');
+    }
+  }]);
