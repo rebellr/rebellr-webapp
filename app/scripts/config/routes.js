@@ -22,7 +22,7 @@ angular.module('rebellrApp')
       name: 'activation',
       templateUrl: '/views/users/activation.html',
       controller: 'UsersActivationCtrl',
-      url: '/account_activations/:token/edit'
+      url: '/account_activations/:token/edit?email'
     };
 
     $stateProvider.state(indexState);
