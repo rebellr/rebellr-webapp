@@ -18,6 +18,14 @@ angular.module('rebellrApp')
       url: '/register'
     };
 
+    var usersActivationState = {
+      name: 'activation',
+      templateUrl: '/views/users/activation.html',
+      controller: 'UsersActivationCtrl',
+      url: '/account_activations/:token/edit'
+    };
+
     $stateProvider.state(indexState);
     $stateProvider.state(usersRegisterState);
+    $stateProvider.state(usersActivationState);
   }]);

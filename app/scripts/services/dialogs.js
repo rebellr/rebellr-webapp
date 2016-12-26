@@ -5,7 +5,7 @@
 angular.module('rebellrApp')
   .service('dialogs', ['$mdDialog', function dialogsService($mdDialog) {
     this.networkErrorAlert = function (error) {
-      $mdDialog.show(
+      return $mdDialog.show(
         $mdDialog.alert()
           .parent(angular.element(document.body))
           .clickOutsideToClose(true)
@@ -17,7 +17,7 @@ angular.module('rebellrApp')
     };
 
     this.errorAlert = function (errorDescription) {
-      $mdDialog.show(
+      return $mdDialog.show(
         $mdDialog.alert()
           .parent(angular.element(document.body))
           .clickOutsideToClose(true)
@@ -25,6 +25,18 @@ angular.module('rebellrApp')
           .textContent('There has been an error: ' + errorDescription)
           .ariaLabel('Error')
           .ok('Ok Ok')
-      )
+      );
+    };
+
+    this.alertTextContent = function(title, content) {
+      return $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.body))
+          .clickOutsideToClose(true)
+          .title(title)
+          .textContent(content)
+          .ariaLabel(title)
+          .ok('Ok Ok')
+      );
     };
   }]);
