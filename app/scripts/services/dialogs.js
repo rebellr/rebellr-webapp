@@ -5,12 +5,13 @@
 angular.module('rebellrApp')
   .service('dialogs', ['$mdDialog', function dialogsService($mdDialog) {
     this.networkErrorAlert = function (error) {
+      var content = error ? error : 'There has been an error in our code. Saketram Durbha takes the blame. Sorry about that.';
       return $mdDialog.show(
         $mdDialog.alert()
           .parent(angular.element(document.body))
           .clickOutsideToClose(true)
           .title('Network Error')
-          .textContent('There has been an error in our code. Saketram Durbha takes the blame. Sorry about that.')
+          .textContent(content)
           .ariaLabel('Network Error')
           .ok('Ok Ok')
       );
@@ -22,7 +23,7 @@ angular.module('rebellrApp')
           .parent(angular.element(document.body))
           .clickOutsideToClose(true)
           .title('There has been an error')
-          .textContent('There has been an error: ' + errorDescription)
+          .textContent(errorDescription)
           .ariaLabel('Error')
           .ok('Ok Ok')
       );

@@ -3,7 +3,7 @@
  */
 
 angular.module('rebellrApp')
-  .controller('UsersActivationCtrl', ['$scope', '$stateParams', '$state', '$http', 'httpConfig', 'dialogs', function ($scope, $stateParams, $http, httpConfig, dialogs) {
+  .controller('UsersActivationCtrl', ['$scope', '$stateParams', '$http', 'httpConfig', 'dialogs', function ($scope, $stateParams, $http, httpConfig, dialogs) {
     $scope.activate = function () {
       var email = $stateParams.email;
       var activationToken = $stateParams.token;
@@ -17,8 +17,12 @@ angular.module('rebellrApp')
           deferred.then(function () {
             // TODO: Change state to sign in
           });
-        }, function errorCallback() {
-          dialogs.networkErrorAlert();
+        }, function errorCallback(response) {
+          if (response.status === 401 || response.status === 403) {
+            dialogs.errorAlert(response.data.error);
+          } else {
+            dialogs.networkErrorAlert();
+          }
         });
     };
   }]);
