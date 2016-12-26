@@ -43,7 +43,7 @@ angular.module('rebellrApp')
           $cookies.put('auth_token', authToken);
           $http.defaults.headers.common.Authorization = 'Token token=' + $cookies.get('auth_token');
         }, function errorCallback(response) {
-          if (response.status === 403) {
+          if (response.status === 401) {
             dialogs.errorAlert(response.data.error);
           } else {
             dialogs.networkErrorAlert();

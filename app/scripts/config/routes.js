@@ -25,7 +25,15 @@ angular.module('rebellrApp')
       url: '/account_activations/:token/edit?email'
     };
 
+    var signInState = {
+      name: 'signIn',
+      templateUrl: '/views/sessions/signin.html',
+      controller: 'SignInCtrl',
+      url: '/signin'
+    };
+
     $stateProvider.state(indexState);
     $stateProvider.state(usersRegisterState);
     $stateProvider.state(usersActivationState);
+    $stateProvider.state(signInState);
   }]);

@@ -3,7 +3,7 @@
  */
 
 angular.module('rebellrApp')
-  .controller('UsersActivationCtrl', ['$scope', '$stateParams', '$http', 'httpConfig', 'dialogs', function ($scope, $stateParams, $http, httpConfig, dialogs) {
+  .controller('UsersActivationCtrl', ['$scope', '$state', '$stateParams', '$http', 'httpConfig', 'dialogs', function ($scope, $state, $stateParams, $http, httpConfig, dialogs) {
     $scope.activate = function () {
       var email = $stateParams.email;
       var activationToken = $stateParams.token;
@@ -15,7 +15,7 @@ angular.module('rebellrApp')
         .then(function successCallback() {
           var deferred = dialogs.alertTextContent('Account Activated!', 'Thank you for activating your account! You will now be redirected to the sign in page.');
           deferred.then(function () {
-            // TODO: Change state to sign in
+            $state.go('signIn');
           });
         }, function errorCallback(response) {
           if (response.status === 401 || response.status === 403) {

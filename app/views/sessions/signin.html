@@ -1,0 +1,30 @@
+<div layout="column" flex ng-cloak>
+  <section layout="row" flex>
+    <md-content flex>
+      <div layout="row" flex layout-fill layout-align="center center">
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Sign In</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <form name="signInForm">
+              <md-input-container class="md-block">
+                <label>Email</label>
+                <input required name="email" type="email" ng-model="user.email" ng-pattern="/^.+@.+\..+$/">
+              </md-input-container>
+              <md-input-container class="md-block">
+                <label>Password</label>
+                <input required type="password" ng-model="user.password">
+              </md-input-container>
+            </form>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-disabled="!signInForm.$valid" ng-click="signIn()">Sign In</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-content>
+  </section>
+</div>
